@@ -35,10 +35,10 @@ print(socket.getaddrinfo('localhost',0))
 │ (<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 0))]
 ```
 
-The code returns two different responses: an `IPv6` response at `*::1` and an `IPv4` response at `127.0.0.1*`. This leads to a few problems.
+The code returns two different responses: an `IPv6` response at `*::1` (for `localhost`) and an `IPv4` response at `127.0.0.1*`. This leads to a few problems.
 
 ### The first Problem
-The fisrt problem with `localhost` is that it can refer to two different **IP** families it can be in `ipv4` or can be in `ipv6`, most of the time the program will handle it by trying `ipv6` address and fails and then try `ipv4` address or the other way around but some programs does not handle it correctly, which is what i have to face, So for me one app is running on the `ipv4` address and one is running on the `ipv6` address, So it caused all sort of different problems.
+The fisrt problem with `localhost` is that it can refer to two different **IP** families it can be in `ipv4` or can be in `ipv6`, most of the time the program will handle it by trying `ipv6` address and fails and then try `ipv4` address or the other way around but some programs does not handle it correctly, which is what i have to face, So for me one app is running on the `ipv4` at `127.0.0.1` address and one is running on the `ipv6` at `localhost` address, So it caused all sort of different problems.
 
 ### The second Problem
 While trying the `ipv6` address first and then failing, the program will necessarly waste some time, also the program will also waste time in looking up `localhost` in `/etc/hosts` which can cause some latency.
