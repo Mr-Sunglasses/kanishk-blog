@@ -3,7 +3,7 @@ external: false
 draft: false
 title: "Why you should not use `localhost` 🤯"
 description: "My Observations regarding localhost and localhost vs 127.0.0.1"
-date: 2023-12-23
+date: 2024-06-06
 ---
 
 
